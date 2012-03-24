@@ -1,0 +1,11 @@
+Feel free to add things to the to-do list and claim tasks by putting your name next to them. When you complete a task, move it to DONE.
+
+TO DO:
+- Determine how the user will interact with the calculator (Michelle, Mickey, Sam)
+- Make to-do list (Michelle, Mickey, Sam)
+- Set up Git (Mickey, Sam)
+- Addition function (Michelle)
+- Substraction function:
+
+DONE:
+-Set up GIT (Michelle)
