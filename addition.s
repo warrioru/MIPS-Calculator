@@ -1,5 +1,6 @@
 #This is the addition function for MIPS-Calculator
 #To be incorporated into the final calculator later
+<<<<<<< HEAD
 #Function computes the sum of the numbers in $t0 and $t1 and places it in $s0.
 #I don't know at all how to make it do large numbers...
 
@@ -23,3 +24,7 @@ syscall #makes the syscall
 
 li $v0, 10 #10 is the exit syscall
 syscall #make the syscall
+=======
+#Actual code also to be added later
+#This is Sam editing.
+>>>>>>> 6ce6290771985ff0d8e09e834c2423a54a7f09dd

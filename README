@@ -8,3 +8,4 @@ In the meantime! If you don't know how to GIT, here is the process to add files 
 1. git add filename.txt   
 2. git commit -a-m "commit message"
 3. git push origin master
+(if 3 gives you an error message, write git pull, hit enter, and then do the push again)
