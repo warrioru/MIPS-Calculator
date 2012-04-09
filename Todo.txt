@@ -2,10 +2,9 @@ Feel free to add things to the to-do list and claim tasks by putting your name n
 
 TO DO:
 - Determine how the user will interact with the calculator (Michelle, Mickey, Sam)
+- Make it so that the program will load big numbers (Michelle, Sam)
 - Make to-do list (Michelle, Mickey, Sam)
-- Set up Git (Mickey, Sam)
 - Addition function (Michelle)
-- Substraction function:
+- Subtraction function:
 
 DONE:
--Set up GIT (Michelle)
