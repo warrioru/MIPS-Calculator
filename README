@@ -1,4 +1,4 @@
-MIPS Calculator - version 0.0
+MIPS Calculator - version 0.01
 
 Authors: Michal Yardeni, Samuel Fleckenstein, Michelle Bergeron
 
@@ -9,3 +9,9 @@ In the meantime! If you don't know how to GIT, here is the process to add files 
 2. git commit -a-m "commit message"
 3. git push origin master
 (if 3 gives you an error message, write git pull, hit enter, and then do the push again)
+
+In order to make sure that everyone is following the same conventions, here are some ground rules.
+  User input will be limited to 96 bits
+    This means that in order to have two user inputted numbers, we need six registers to store the numbers in. The first number entered will be stored in regiters $t0 - $t2, and the second entered will be in $t3 - $t5.
+  The operator (+, -, *, etc) will be in $t6
+  The result will go in the $s registers, starting at $s0, with a maximum size of 128 bits.
