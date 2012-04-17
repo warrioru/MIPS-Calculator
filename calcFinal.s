@@ -9,7 +9,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
 	move $t0, $v0		#moves the input into $t0
 
@@ -17,7 +17,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
 	move $t1, $v0		#moves the input into $t1
 
@@ -25,7 +25,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#5 is the read_double syscall
 	syscall			#makes the syscall
 	move $t2, $v0		#moves the input into $t2
 
@@ -46,7 +46,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#5 is the read_double syscall
 	syscall			#makes the syscall
 	move $t3, $v0		#moves the input into $t3
 
@@ -54,7 +54,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#5 is the read_double syscall
 	syscall			#makes the syscall
 	move $t4, $v0		#moves the input into $t5
 
@@ -62,7 +62,7 @@ main:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 5		#5 is the read_int syscall
+	li $v0, 7		#5 is the read_double syscall
 	syscall			#makes the syscall
 	move $t5, $v0		#moves the input into $t6
 
