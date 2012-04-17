@@ -2,9 +2,10 @@ Feel free to add things to the to-do list and claim tasks by putting your name n
 
 TO DO:
 - Determine how the user will interact with the calculator (Michelle, Mickey, Sam)
-- Make it so that the program will load big numbers (Michelle, Sam)
 - Make to-do list (Michelle, Mickey, Sam)
 - Addition function (Michelle)
 - Subtraction function:
+- Error handling for invalid operators? This should be done last, and just assume that the user will be careful until it is implemented.
 
 DONE:
+-Read in user input for numbers and operators.
