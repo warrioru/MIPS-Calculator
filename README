@@ -15,3 +15,4 @@ In order to make sure that everyone is following the same conventions, here are 
     This means that in order to have two user inputted numbers, we need six registers to store the numbers in. The first number entered will be stored in regiters $t0 - $t2, and the second entered will be in $t3 - $t5.
   The operator (+, -, *, etc) will be in $t6
   The result will go in the $s registers, starting at $s0, with a maximum size of 128 bits.
+  The most significant bits will go in the lower numbered registers. (MSB for userInput1 goes in $t0)
