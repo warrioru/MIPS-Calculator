@@ -5,6 +5,7 @@
  	.text
 main:
 		#gets the first number to operate on
+		#note: this format won't support trig functions because of the way data is entered.
 	la $a0, userInput1	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
