@@ -18,5 +18,4 @@ In order to make sure that everyone is following the same conventions, here are 
   The most significant bits will go in the lower numbered registers. (MSB for userInput1 goes in $t0)
 
 
-So it looks like the registers can hold up to 18446744073709552000 or 0xffffffffffffffff (that's 16 fs), which is a total of 64 bits.
-But you can only input up to 32767 (2^15 - 1) because apparently it reads numbers in as signed.
+The registers ccan hold up to 2^63 - 1. You can also enter numbers this large.
