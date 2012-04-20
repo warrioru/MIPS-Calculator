@@ -21,3 +21,4 @@ The stuff below is true. The stuff above that contradicts it is no longer true.
 
 The registers ccan hold up to 2^63 - 1. You can also enter numbers this large.
 This means that user input can be up to 63 bits. We will limit the output to 128 bits.
+The operations supported will be +, -, *, /, x^y, sin(x), cos(x) and tan(x) using Taylor expansions.
