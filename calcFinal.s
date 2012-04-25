@@ -430,6 +430,187 @@ computeTan:
 	syscall			#makes the syscall
 	mov.s $f2, $f0		#moves the input into $f2
 
+
+
+
+
+	#Computes cos(x) and stores in $f6
+
+	l.s $f4, numberZero
+	l.s $f14, numberOne
+
+	mul.s $f4, $f2, $f2	#$f4 = x^2
+
+	l.s $f8, twoFactorial	#$f8 = 2!
+	div.s $f10, $f4, $f8	#$f10 = x^2 / 2!
+	
+	sub.s $f6, $f14, $f10	#$f6 = 1 - x^2/2!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^4
+
+	l.s $f8, fourFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^4 / 4!
+
+	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^6
+
+	l.s $f8, sixFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^6 / 6!
+
+	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^8
+
+	l.s $f8, eightFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^8 / 8!
+
+	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^10
+
+	l.s $f8, tenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^10 / 10!
+
+	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^12
+
+	l.s $f8, twelveFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^12 / 12!
+
+	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^14
+
+	l.s $f8, fourteenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^14 / 14!
+
+	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^16
+
+	l.s $f8, sixteenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^16 / 16!
+
+	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+
+
+
+
+	#Computes sin(x) and stores in $f16
+
+	l.s $f4, numberZero
+
+	mul.s $f4, $f2, $f2	#$f4 = x^2
+	mul.s $f4, $f4, $f2	#$f4 = x^3
+
+	l.s $f8, threeFactorial	#$f8 = 3!
+	div.s $f10, $f4, $f8	#$f10 = x^3 / 3!
+	
+	sub.s $f16, $f2, $f10	#$f6 = x - x^3/3!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^5
+
+	l.s $f8, fiveFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^5 / 5!
+
+	add.s $f16, $f16, $f10	#$f16 = x - x^3/3! + x^5 / 5!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^7
+
+	l.s $f8, sevenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^7 / 7!
+
+	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^9
+
+	l.s $f8, nineFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^9 / 9!
+
+	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^11
+
+	l.s $f8, elevenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^11 / 11!
+
+	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^13
+
+	l.s $f8, thirteenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^13 / 13!
+
+	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^15
+
+	l.s $f8, fifteenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^15 / 15!
+
+	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+
+
+	mul.s $f4, $f4, $f2
+	mul.s $f4, $f4, $f2	#$f4 = x^17
+
+	l.s $f8, seventeenFactorial
+	div.s $f10, $f4, $f8	#$f10 = x^17 / 17!
+
+	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+
+
+
+
+	div.s $f18, $f16, $f6	#$f18 = sin(x)/cos(x)
+
+	la $a0, printTan	#loads the address of printCos into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	mov.s $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
+	li $v0, 2		#2 is the print_float syscall
+	syscall			#makes the syscall
+
+	la $a0, closeParen	#loads the address of closeParentheses into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	la $a0, equalsSign	#loads the address of equalsSign into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	mov.s $f12, $f18	#have to move $t0 to $f12 because it only prints $f12
+	li $v0, 2		#2 is the print_float syscall
+	syscall			#makes the syscall
+	j top			#returns to the input stage
+
 	j top			#returns to the input stage
 
 quitProgram:
@@ -481,15 +662,17 @@ minusSign:	.asciiz " - "
 timesSign:	.asciiz " * "
 divideSign:	.asciiz " / "
 equalsSign:     .asciiz " = "
-operatorEntry:	.asciiz "\nOperator:"
-userInput1:	.asciiz	"\nFirst number:"
-userInput2:	.asciiz "Second number:"
+operatorEntry:	.asciiz "\nOperator: "
+userInput1:	.asciiz	"\nFirst number: "
+userInput2:	.asciiz "Second number: "
 enterAngle:	.asciiz "\nEnter the angle in radians, using the decimal form: "
 printSin:	.asciiz "sin("
 printCos:	.asciiz "cos("
+printTan:	.asciiz "tan("
 closeParen:	.asciiz ")"
 numberZero:	.float 0.0
 numberOne:	.float 1.0
+
 	#these are used to calculate sine
 threeFactorial:	.float 6.0
 fiveFactorial:	.float 120.0
