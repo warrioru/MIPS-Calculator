@@ -1,27 +1,9 @@
 #This is where all of the functions will ultimately go after they're written and tested individually.
 #Authors: Michelle Bergeron, Samuel Fleckenstein, Michal Yardeni
 
-		.text
+	.text
 main:
 	top:
-#########################################
-		#stores the max value (0xffffffffffffffff) in $s8
-		#this will be used to see if there will be overflow
-	addi $t0, $zero, 32767
-	addi $t1, $zero, 4
-	mult $t0, $t1
-	mflo $t2
-	addi $t2, $t2, 8
-	mult $t2, $t0								#THIS DOESN'T WORK
-	mflo $t3
-	addi $s8, $t3, 3
-	li $t0, 0
-	li $t1, 0
-	li $t2, 0
-	li $t3, 0
-	mult $zero, $zero
-#########################################
-
 			#gets the operator
 	la $a0, operatorEntry	#loads the address of operatorEntry into $a0
 	li $v0, 4		#4 is the print_string syscall
@@ -210,6 +192,36 @@ division:
 
 exponential:
 		#assumes the input is in $t0 and $t1
+	addi $t2, $zero, 0	#$t2 is the loop counter
+	#addi $t4, $t1, 0	#$t4 is the loop termination condition
+	li $s0, 1		#$s0 will contain the result
+
+		expLoop:
+	addi $t2, $t2, 1	#i++
+	mult $s0, $t0		#lo = $s0 * $t0
+	mflo $s0		#$s0 = lo
+	slt $t3, $t2, $t1	#if $t2 < $t4 then $t3 = 1 
+	bne $t3, $zero, expLoop	#if $t3 != 0 goto expLoop
+
+	move $a0, $t0		#have to move $t0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, printExp	#loads the address of printExp into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $t1		#have to move $t1 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, equalsSign	#loads the address of equalsSign into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $s0		#have to move $s0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
 
 	j top			#returns to the input stage
 
@@ -670,6 +682,7 @@ printSin:	.asciiz "sin("
 printCos:	.asciiz "cos("
 printTan:	.asciiz "tan("
 closeParen:	.asciiz ")"
+printExp:	.asciiz "^"
 numberZero:	.float 0.0
 numberOne:	.float 1.0
 
