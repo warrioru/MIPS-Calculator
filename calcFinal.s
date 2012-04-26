@@ -164,6 +164,7 @@ multiplication:
 	j top			#returns to the input stage
 
 division:
+	beq $t1, $zero, divZero
 		#assumes the input is in $t0 and $t1
 	div $t0, $t1		#lo now contains $t0 / $t1
 	mflo $s0		#$s0 now contains $t0 / $t1
@@ -172,7 +173,7 @@ division:
 	li $v0, 1		#1 is the print_int syscall
 	syscall			#makes the syscall
 
-	la $a0, divideSign	#loads the address of minussSign into $a0
+	la $a0, divideSign	#loads the address of divideSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
@@ -189,6 +190,15 @@ division:
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
+
+divZero: #Safely returns the user to the top of the program if they are trying to divide by zero.
+	la $a0, divZeroMessage	#loads the address of divZeroMessage into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	j top 			#returns to the input stage
+
+
 
 exponential:
 		#assumes the input is in $t0 and $t1
@@ -683,8 +693,10 @@ printCos:	.asciiz "cos("
 printTan:	.asciiz "tan("
 closeParen:	.asciiz ")"
 printExp:	.asciiz "^"
+divZeroMessage: .asciiz "Cannot divide by zero."
 numberZero:	.float 0.0
 numberOne:	.float 1.0
+
 
 	#these are used to calculate sine
 threeFactorial:	.float 6.0
