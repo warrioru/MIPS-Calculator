@@ -1,12 +1,11 @@
-#This is where all of the functions will ultimately go after they're written and tested individually.
-#Authors: Michelle Bergeron, Samuel Fleckenstein, Michal Yardeni
-
 	.text
 main:
+
 	#Prints out supported operators
 	la $a0, welcome 	#loads the address of welcome into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
+
 	top:
 			#gets the operator
 	la $a0, operatorEntry	#loads the address of operatorEntry into $a0
@@ -27,7 +26,7 @@ main:
 	beq $t7, $t1, userInputOperators
 
 	addi $t1, $zero, 47	#47 is /
-	beq $t7, $t1, userInputOperators
+	beq $t7, $t1, division
 
 	addi $t1, $zero, 94	#94 is ^
 	beq $t7, $t1, userInputOperators
@@ -85,8 +84,8 @@ userInputOperators:
 	addi $t9, $zero, 42	#42 is *
 	beq $t7, $t9, multiplication
 
-	addi $t9, $zero, 47	#47 is /
-	beq $t7, $t9, division
+	#addi $t9, $zero, 47	#47 is /
+	#beq $t7, $t9, division
 
 	addi $t9, $zero, 94	#94 is ^
 	beq $t7, $t9, exponential
@@ -177,41 +176,62 @@ multiplication:
 	j top			#returns to the input stage
 
 division:
-	beq $t1, $zero, divZero
-		#assumes the input is in $t0 and $t1
-	div $t0, $t1		#lo now contains $t0 / $t1
-	mflo $s0		#$s0 now contains $t0 / $t1
 
-	move $a0, $t0		#have to move $t0 to $a0 because it only prints $a0
-	li $v0, 1		#1 is the print_int syscall
+		#this uses different input than usual because it needs to handle floats
+	la $a0, userInput1	#loads the address of userInput1 into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	li $v0, 6		#6 is the read_float syscall
+	syscall			#makes the syscall
+	mov.s $f2, $f0		#moves the input into $f6
+
+		#gets the second number to operate on
+	la $a0, userInput2	#loads the address of userInput1 into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	li $v0, 6		#6 is the read_float syscall
+	syscall			#makes the syscall
+	mov.s $f4, $f0		#moves the input into $f2
+
+	l.s $f16, numberZero	#$f16 = 0
+	
+	c.eq.s $f4, $f16	#if $f4 == f16, floating point condition flag = true
+
+	bc1t divZero		#if floating point condition flag = true, goto divZero
+
+	div.s $f6, $f2, $f4	#$f6 = $f2 / $f4
+
+	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 2		#1 is the print_float syscall
 	syscall			#makes the syscall
 
 	la $a0, divideSign	#loads the address of divideSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	move $a0, $t1		#have to move $t1 to $a0 because it only prints $a0
-	li $v0, 1		#1 is the print_int syscall
+	mov.s $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
+	li $v0, 2		#2 is the print_float syscall
 	syscall			#makes the syscall
 
 	la $a0, equalsSign	#loads the address of equalsSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	move $a0, $s0		#have to move $s0 to $a0 because it only prints $a0
-	li $v0, 1		#1 is the print_int syscall
+	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 2		#2 is the print_float syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
 
-divZero: #Safely returns the user to the top of the program if they are trying to divide by zero.
+divZero: 
+		#Safely returns the user to the top of the program if they are trying to divide by zero.
 	la $a0, divZeroMessage	#loads the address of divZeroMessage into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
 	j top 			#returns to the input stage
-
-
 
 exponential:
 		#assumes the input is in $t0 and $t1
@@ -692,7 +712,9 @@ printOverflowAdditionMult:
 #################################
 
 	.data
-welcome: 	.asciiz "MIPS Calculator \nSupported operations: \nAddition (+)   Subtraction (-) \nMultiplication (*)   Division (/) \nExponentiation (^)  Sine  (s) \nCosine (c)   Tangent (t)"
+welcome: 	.asciiz "MIPS Calculator \nSupported operations: \nAddition (+)   Subtraction (-) \nMultiplication (*)   Division (/) \nExponentiation (^)  Sine  (s) 
+
+\nCosine (c)   Tangent (t)"
 addSign:	.asciiz " + "
 minusSign:	.asciiz " - "
 timesSign:	.asciiz " * "
@@ -711,7 +733,6 @@ divZeroMessage: .asciiz "Cannot divide by zero."
 badOperator: 	.asciiz "Command not recognized. Please try again."
 numberZero:	.float 0.0
 numberOne:	.float 1.0
-
 
 	#these are used to calculate sine
 threeFactorial:	.float 6.0
