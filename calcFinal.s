@@ -40,6 +40,15 @@ main:
 	addi $t1, $zero, 113	#113 is q
 	beq $t7, $t1, quitProgram
 
+	#If the program gets to here, then the user didn't do it right.
+	#Start the program over: 
+
+	la $a0, badOperator	#loads the address of badOperator into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	j top			#Has the user try again with user input. 
+
 end:
 	li $v0, 10		#10 is the exit syscall
 	syscall			#actually exits the program
@@ -694,6 +703,7 @@ printTan:	.asciiz "tan("
 closeParen:	.asciiz ")"
 printExp:	.asciiz "^"
 divZeroMessage: .asciiz "Cannot divide by zero."
+badOperator: 	.asciiz "Command not recognized. Please try again."
 numberZero:	.float 0.0
 numberOne:	.float 1.0
 
