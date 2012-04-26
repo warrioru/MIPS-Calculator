@@ -3,6 +3,10 @@
 
 	.text
 main:
+	#Prints out supported operators
+	la $a0, welcome 	#loads the address of welcome into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
 	top:
 			#gets the operator
 	la $a0, operatorEntry	#loads the address of operatorEntry into $a0
@@ -688,6 +692,7 @@ printOverflowAdditionMult:
 #################################
 
 	.data
+welcome: 	.asciiz "MIPS Calculator \nSupported operations: \nAddition (+)   Subtraction (-) \nMultiplication (*)   Division (/) \nExponentiation (^)  Sine  (s) \nCosine (c)   Tangent (t)"
 addSign:	.asciiz " + "
 minusSign:	.asciiz " - "
 timesSign:	.asciiz " * "
