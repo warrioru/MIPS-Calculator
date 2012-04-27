@@ -2,6 +2,8 @@
 #To be incorporated into the final calculator later
 #Function computes the sum of the numbers in $t0 and $t1 and places it in $s0.
 #I don't know at all how to make it do large numbers...
+#To handle large numbers, it needs to be able to detect if there is going to be carryout into the next 32 bit chunk if say $t0 + $t3 is bigger than 32 bits.
+#To do this, calculate: maxIntSize - $t0. $t3 is greater than this, there will be carryout.
 
 main:
 #Get first number from user and place in $t0
