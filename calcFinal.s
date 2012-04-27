@@ -712,9 +712,8 @@ printOverflowAdditionMult:
 #################################
 
 	.data
-welcome: 	.asciiz "MIPS Calculator \nSupported operations: \nAddition (+)   Subtraction (-) \nMultiplication (*)   Division (/) \nExponentiation (^)  Sine  (s) 
-
-\nCosine (c)   Tangent (t)"
+welcome: 	.asciiz "MIPS Calculator \nSupported operations: \nAddition (+)   Subtraction (-) \nMultiplication (*)   Division (/) \nExponentiation (^)  Sine  (s)
+Cosine (c)   Tangent (t)\n"
 addSign:	.asciiz " + "
 minusSign:	.asciiz " - "
 timesSign:	.asciiz " * "
