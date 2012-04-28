@@ -70,39 +70,39 @@ addition:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f6
+	mov.d $f2, $f0		#moves the input into $f6
 
 		#gets the second number to operate on
 	la $a0, userInput2	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f4, $f0		#moves the input into $f2
+	mov.d $f4, $f0		#moves the input into $f2
 
-	add.s $f6, $f2, $f4	#$f6 = $f2 + $f4
+	add.d $f6, $f2, $f4	#$f6 = $f2 + $f4
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#1 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#1 is the print_float syscall
 	syscall			#makes the syscall
 
 	la $a0, addSign		#loads the address of addSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
+	li $v0, 3		#2 is the print_float syscall
 	syscall			#makes the syscall
 
 	la $a0, equalsSign	#loads the address of equalsSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#2 is the print_float syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
@@ -112,39 +112,39 @@ subtraction:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#6 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f6
+	mov.d $f2, $f0		#moves the input into $f6
 
 		#gets the second number to operate on
 	la $a0, userInput2	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#6 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f4, $f0		#moves the input into $f2
+	mov.d $f4, $f0		#moves the input into $f2
 
-	sub.s $f6, $f2, $f4	#$f6 = $f2 - $f4
+	sub.d $f6, $f2, $f4	#$f6 = $f2 - $f4
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#1 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#1 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, minusSign	#loads the address of minusSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
+	li $v0, 3		#2 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, equalsSign	#loads the address of equalsSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
@@ -154,88 +154,87 @@ multiplication:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#6 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f6
+	mov.d $f2, $f0		#moves the input into $f6
 
 		#gets the second number to operate on
 	la $a0, userInput2	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f4, $f0		#moves the input into $f2
+	mov.d $f4, $f0		#moves the input into $f2
 
-	mul.s $f6, $f2, $f4	#$f6 = $f2 * $f4
+	mul.d $f6, $f2, $f4	#$f6 = $f2 * $f4
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#1 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, timesSign	#loads the address of timesSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, equalsSign	#loads the address of equalsSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
 
 division:
-
 	la $a0, userInput1	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#6 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f6
 
 		#gets the second number to operate on
 	la $a0, userInput2	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#6 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f4, $f0		#moves the input into $f2
+	mov.d $f4, $f0		#moves the input into $f2
 
-	l.s $f16, numberZero	#$f16 = 0
+	l.d $f16, numberZero	#$f16 = 0
 	
-	c.eq.s $f4, $f16	#if $f4 == f16, floating point condition flag = true
+	c.eq.d $f4, $f16	#if $f4 == f16, floating point condition flag = true
 
 	bc1t divZero		#if floating point condition flag = true, goto divZero
 
-	div.s $f6, $f2, $f4	#$f6 = $f2 / $f4
+	div.d $f6, $f2, $f4	#$f6 = $f2 / $f4
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#1 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
-	la $a0, divideSign	#loads the address of divideSign into $a0
+	la $a0, divideSign	#loads the address of timesSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f4		#have to move $f4 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, equalsSign	#loads the address of equalsSign into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
@@ -304,88 +303,88 @@ computeSin:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#5 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
-	l.s $f4, numberZero
+	l.d $f4, numberZero
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
-	mul.s $f4, $f4, $f2	#$f4 = x^3
+	mul.d $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f4, $f2	#$f4 = x^3
 
-	l.s $f8, threeFactorial	#$f8 = 3!
-	div.s $f10, $f4, $f8	#$f10 = x^3 / 3!
+	l.d $f8, threeFactorial	#$f8 = 3!
+	div.d $f10, $f4, $f8	#$f10 = x^3 / 3!
 	
-	sub.s $f6, $f2, $f10	#$f6 = x - x^3/3!
+	sub.d $f6, $f2, $f10	#$f6 = x - x^3/3!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^5
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^5
 
-	l.s $f8, fiveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^5 / 5!
+	l.d $f8, fiveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^5 / 5!
 
-	add.s $f6, $f6, $f10	#$f6 = x - x^3/3! + x^5 / 5!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^7
-
-	l.s $f8, sevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^7 / 7!
-
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!
+	add.d $f6, $f6, $f10	#$f6 = x - x^3/3! + x^5 / 5!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^9
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^7
 
-	l.s $f8, nineFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^9 / 9!
+	l.d $f8, sevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^7 / 7!
 
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^11
-
-	l.s $f8, elevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^11 / 11!
-
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^13
-
-	l.s $f8, thirteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^13 / 13!
-
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^15
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^9
 
-	l.s $f8, fifteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^15 / 15!
+	l.d $f8, nineFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^9 / 9!
 
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^17
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^11
 
-	l.s $f8, seventeenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^17 / 17!
+	l.d $f8, elevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^11 / 11!
 
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^13
+
+	l.d $f8, thirteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^13 / 13!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^15
+
+	l.d $f8, fifteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^15 / 15!
+
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^17
+
+	l.d $f8, seventeenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^17 / 17!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
 
 	la $a0, printSin	#loads the address of printSin into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -396,8 +395,8 @@ computeSin:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $t0 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $t0 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
@@ -410,86 +409,86 @@ computeCos:
 
 	li $v0, 6		#5 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
-	l.s $f4, numberZero
-	l.s $f14, numberOne
+	l.d $f4, numberZero
+	l.d $f14, numberOne
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f2, $f2	#$f4 = x^2
 
-	l.s $f8, twoFactorial	#$f8 = 2!
-	div.s $f10, $f4, $f8	#$f10 = x^2 / 2!
+	l.d $f8, twoFactorial	#$f8 = 2!
+	div.d $f10, $f4, $f8	#$f10 = x^2 / 2!
 	
-	sub.s $f6, $f14, $f10	#$f6 = 1 - x^2/2!
+	sub.d $f6, $f14, $f10	#$f6 = 1 - x^2/2!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^4
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^4
 
-	l.s $f8, fourFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^4 / 4!
+	l.d $f8, fourFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^4 / 4!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^6
-
-	l.s $f8, sixFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^6 / 6!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^8
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^6
 
-	l.s $f8, eightFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^8 / 8!
+	l.d $f8, sixFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^6 / 6!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^10
-
-	l.s $f8, tenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^10 / 10!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^12
-
-	l.s $f8, twelveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^12 / 12!
-
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^14
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^8
 
-	l.s $f8, fourteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^14 / 14!
+	l.d $f8, eightFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^8 / 8!
 
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^16
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^10
 
-	l.s $f8, sixteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^16 / 16!
+	l.d $f8, tenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^10 / 10!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^12
+
+	l.d $f8, twelveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^12 / 12!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^14
+
+	l.d $f8, fourteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^14 / 14!
+
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^16
+
+	l.d $f8, sixteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^16 / 16!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
 
 	la $a0, printCos	#loads the address of printCos into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -500,9 +499,10 @@ computeCos:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $t0 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $t0 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
+
 	j top			#returns to the input stage
 
 computeTan:
@@ -513,168 +513,168 @@ computeTan:
 
 	li $v0, 6		#5 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
-	#Computes cos(x) and stores in $f6
+		#Computes cos(x) and stores in $f6
 
-	l.s $f4, numberZero
-	l.s $f14, numberOne
+	l.d $f4, numberZero
+	l.d $f14, numberOne
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f2, $f2	#$f4 = x^2
 
-	l.s $f8, twoFactorial	#$f8 = 2!
-	div.s $f10, $f4, $f8	#$f10 = x^2 / 2!
+	l.d $f8, twoFactorial	#$f8 = 2!
+	div.d $f10, $f4, $f8	#$f10 = x^2 / 2!
 	
-	sub.s $f6, $f14, $f10	#$f6 = 1 - x^2/2!
+	sub.d $f6, $f14, $f10	#$f6 = 1 - x^2/2!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^4
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^4
 
-	l.s $f8, fourFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^4 / 4!
+	l.d $f8, fourFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^4 / 4!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^6
-
-	l.s $f8, sixFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^6 / 6!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^8
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^6
 
-	l.s $f8, eightFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^8 / 8!
+	l.d $f8, sixFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^6 / 6!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^10
-
-	l.s $f8, tenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^10 / 10!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^12
-
-	l.s $f8, twelveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^12 / 12!
-
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^14
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^8
 
-	l.s $f8, fourteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^14 / 14!
+	l.d $f8, eightFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^8 / 8!
 
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^16
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^10
 
-	l.s $f8, sixteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^16 / 16!
+	l.d $f8, tenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^10 / 10!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^12
+
+	l.d $f8, twelveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^12 / 12!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^14
+
+	l.d $f8, fourteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^14 / 14!
+
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^16
+
+	l.d $f8, sixteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^16 / 16!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
 
 
 
 
 	#Computes sin(x) and stores in $f16
 
-	l.s $f4, numberZero
+		l.d $f4, numberZero
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
-	mul.s $f4, $f4, $f2	#$f4 = x^3
+	mul.d $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f4, $f2	#$f4 = x^3
 
-	l.s $f8, threeFactorial	#$f8 = 3!
-	div.s $f10, $f4, $f8	#$f10 = x^3 / 3!
+	l.d $f8, threeFactorial	#$f8 = 3!
+	div.d $f10, $f4, $f8	#$f10 = x^3 / 3!
 	
-	sub.s $f16, $f2, $f10	#$f6 = x - x^3/3!
+	sub.d $f6, $f2, $f10	#$f6 = x - x^3/3!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^5
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^5
 
-	l.s $f8, fiveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^5 / 5!
+	l.d $f8, fiveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^5 / 5!
 
-	add.s $f16, $f16, $f10	#$f16 = x - x^3/3! + x^5 / 5!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^7
-
-	l.s $f8, sevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^7 / 7!
-
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!
+	add.d $f6, $f6, $f10	#$f6 = x - x^3/3! + x^5 / 5!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^9
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^7
 
-	l.s $f8, nineFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^9 / 9!
+	l.d $f8, sevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^7 / 7!
 
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^11
-
-	l.s $f8, elevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^11 / 11!
-
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^13
-
-	l.s $f8, thirteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^13 / 13!
-
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^15
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^9
 
-	l.s $f8, fifteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^15 / 15!
+	l.d $f8, nineFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^9 / 9!
 
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^17
-
-	l.s $f8, seventeenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^17 / 17!
-
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
 
 
-	div.s $f18, $f16, $f6	#$f18 = sin(x)/cos(x)
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^11
+
+	l.d $f8, elevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^11 / 11!
+
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^13
+
+	l.d $f8, thirteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^13 / 13!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^15
+
+	l.d $f8, fifteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^15 / 15!
+
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^17
+
+	l.d $f8, seventeenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^17 / 17!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+
+
+	div.d $f18, $f16, $f6	#$f18 = sin(x)/cos(x)
 
 	la $a0, printTan	#loads the address of printCos into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -685,10 +685,9 @@ computeTan:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f18	#have to move $t0 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f18	#have to move $t0 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
-	j top			#returns to the input stage
 
 	j top			#returns to the input stage
 
@@ -698,92 +697,93 @@ computeCosec:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#5 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
-	l.s $f4, numberZero
-
-	mul.s $f4, $f2, $f2	#$f4 = x^2
-	mul.s $f4, $f4, $f2	#$f4 = x^3
-
-	l.s $f8, threeFactorial	#$f8 = 3!
-	div.s $f10, $f4, $f8	#$f10 = x^3 / 3!
 	
-	sub.s $f6, $f2, $f10	#$f6 = x - x^3/3!
+	l.d $f4, numberZero
+
+	mul.d $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f4, $f2	#$f4 = x^3
+
+	l.d $f8, threeFactorial	#$f8 = 3!
+	div.d $f10, $f4, $f8	#$f10 = x^3 / 3!
+	
+	sub.d $f6, $f2, $f10	#$f6 = x - x^3/3!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^5
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^5
 
-	l.s $f8, fiveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^5 / 5!
+	l.d $f8, fiveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^5 / 5!
 
-	add.s $f6, $f6, $f10	#$f6 = x - x^3/3! + x^5 / 5!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^7
-
-	l.s $f8, sevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^7 / 7!
-
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!
+	add.d $f6, $f6, $f10	#$f6 = x - x^3/3! + x^5 / 5!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^9
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^7
 
-	l.s $f8, nineFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^9 / 9!
+	l.d $f8, sevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^7 / 7!
 
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^11
-
-	l.s $f8, elevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^11 / 11!
-
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^13
-
-	l.s $f8, thirteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^13 / 13!
-
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^15
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^9
 
-	l.s $f8, fifteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^15 / 15!
+	l.d $f8, nineFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^9 / 9!
 
-	sub.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^17
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^11
 
-	l.s $f8, seventeenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^17 / 17!
+	l.d $f8, elevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^11 / 11!
 
-	add.s $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
 
-	l.s $f14, numberOne
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^13
 
-	div.s $f6, $f14, $f6
+	l.d $f8, thirteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^13 / 13!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^15
+
+	l.d $f8, fifteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^15 / 15!
+
+	sub.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^17
+
+	l.d $f8, seventeenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^17 / 17!
+
+	add.d $f6, $f6, $f10	#$f6 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+
+	l.d $f14, numberOne
+
+	div.d $f6, $f14, $f6
 
 	la $a0, printCsc	#loads the address of printCsc into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f2 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -794,105 +794,104 @@ computeCosec:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
-	j top			#returns to the input stage
 
 	j top			#returns to the input stage
 
 computeSec:
-			#stores the user input in $f2, $f6 will be the output
+						#stores the user input in $f2, $f6 will be the output
 	la $a0, enterAngle	#loads the address of userInput1 into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	li $v0, 6		#5 is the read_float syscall
+	li $v0, 7		#7 is the read_double syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
-	l.s $f4, numberZero
-	l.s $f14, numberOne
+	l.d $f4, numberZero
+	l.d $f14, numberOne
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f2, $f2	#$f4 = x^2
 
-	l.s $f8, twoFactorial	#$f8 = 2!
-	div.s $f10, $f4, $f8	#$f10 = x^2 / 2!
+	l.d $f8, twoFactorial	#$f8 = 2!
+	div.d $f10, $f4, $f8	#$f10 = x^2 / 2!
 	
-	sub.s $f6, $f14, $f10	#$f6 = 1 - x^2/2!
+	sub.d $f6, $f14, $f10	#$f6 = 1 - x^2/2!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^4
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^4
 
-	l.s $f8, fourFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^4 / 4!
+	l.d $f8, fourFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^4 / 4!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^6
-
-	l.s $f8, sixFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^6 / 6!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^8
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^6
 
-	l.s $f8, eightFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^8 / 8!
+	l.d $f8, sixFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^6 / 6!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^10
-
-	l.s $f8, tenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^10 / 10!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^12
-
-	l.s $f8, twelveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^12 / 12!
-
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^14
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^8
 
-	l.s $f8, fourteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^14 / 14!
+	l.d $f8, eightFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^8 / 8!
 
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^16
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^10
 
-	l.s $f8, sixteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^16 / 16!
+	l.d $f8, tenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^10 / 10!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
 
-	l.s $f14, numberOne
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^12
 
-	div.s $f6, $f14, $f6
+	l.d $f8, twelveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^12 / 12!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^14
+
+	l.d $f8, fourteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^14 / 14!
+
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^16
+
+	l.d $f8, sixteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^16 / 16!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+
+	l.d $f14, numberOne
+
+	div.d $f6, $f14, $f6
 
 	la $a0, printSec	#loads the address of printSec into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -903,10 +902,9 @@ computeSec:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f6		#have to move $f6 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
-	j top			#returns to the input stage
 
 	j top			#returns to the input stage
 
@@ -918,168 +916,167 @@ computeCotan:
 
 	li $v0, 6		#5 is the read_float syscall
 	syscall			#makes the syscall
-	mov.s $f2, $f0		#moves the input into $f2
+	mov.d $f2, $f0		#moves the input into $f2
 
+		#Computes cos(x) and stores in $f6
 
-	#Computes cos(x) and stores in $f6
+	l.d $f4, numberZero
+	l.d $f14, numberOne
 
-	l.s $f4, numberZero
-	l.s $f14, numberOne
+	mul.d $f4, $f2, $f2	#$f4 = x^2
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
-
-	l.s $f8, twoFactorial	#$f8 = 2!
-	div.s $f10, $f4, $f8	#$f10 = x^2 / 2!
+	l.d $f8, twoFactorial	#$f8 = 2!
+	div.d $f10, $f4, $f8	#$f10 = x^2 / 2!
 	
-	sub.s $f6, $f14, $f10	#$f6 = 1 - x^2/2!
+	sub.d $f6, $f14, $f10	#$f6 = 1 - x^2/2!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^4
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^4
 
-	l.s $f8, fourFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^4 / 4!
+	l.d $f8, fourFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^4 / 4!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^6
-
-	l.s $f8, sixFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^6 / 6!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^8
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^6
 
-	l.s $f8, eightFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^8 / 8!
+	l.d $f8, sixFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^6 / 6!
 
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^10
-
-	l.s $f8, tenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^10 / 10!
-
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^12
-
-	l.s $f8, twelveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^12 / 12!
-
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^14
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^8
 
-	l.s $f8, fourteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^14 / 14!
+	l.d $f8, eightFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^8 / 8!
 
-	sub.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^16
-
-	l.s $f8, sixteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^16 / 16!
-
-	add.s $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!
 
 
-	#Computes sin(x) and stores in $f16
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^10
 
-	l.s $f4, numberZero
+	l.d $f8, tenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^10 / 10!
 
-	mul.s $f4, $f2, $f2	#$f4 = x^2
-	mul.s $f4, $f4, $f2	#$f4 = x^3
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!
 
-	l.s $f8, threeFactorial	#$f8 = 3!
-	div.s $f10, $f4, $f8	#$f10 = x^3 / 3!
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^12
+
+	l.d $f8, twelveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^12 / 12!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^14
+
+	l.d $f8, fourteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^14 / 14!
+
+	sub.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^16
+
+	l.d $f8, sixteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^16 / 16!
+
+	add.d $f6, $f6, $f10	#$f6 = 1-x^2/2!+x^4/4!-x^6/6!+x^8/8!-x^10/10!+x^12/12!-x^14/14!+x^16/16!
+
+
+		#Computes sin(x) and stores in $f16
+
+	l.d $f4, numberZero
+
+	mul.d $f4, $f2, $f2	#$f4 = x^2
+	mul.d $f4, $f4, $f2	#$f4 = x^3
+
+	l.d $f8, threeFactorial	#$f8 = 3!
+	div.d $f10, $f4, $f8	#$f10 = x^3 / 3!
 	
-	sub.s $f16, $f2, $f10	#$f6 = x - x^3/3!
+	sub.d $f16, $f2, $f10	#$f16 = x - x^3/3!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^5
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^5
 
-	l.s $f8, fiveFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^5 / 5!
+	l.d $f8, fiveFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^5 / 5!
 
-	add.s $f16, $f16, $f10	#$f16 = x - x^3/3! + x^5 / 5!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^7
-
-	l.s $f8, sevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^7 / 7!
-
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!
+	add.d $f16, $f16, $f10	#$f16 = x - x^3/3! + x^5 / 5!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^9
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^7
 
-	l.s $f8, nineFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^9 / 9!
+	l.d $f8, sevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^7 / 7!
 
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^11
-
-	l.s $f8, elevenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^11 / 11!
-
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^13
-
-	l.s $f8, thirteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^13 / 13!
-
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+	sub.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!
 
 
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^15
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^9
 
-	l.s $f8, fifteenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^15 / 15!
+	l.d $f8, nineFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^9 / 9!
 
-	sub.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
-
-
-	mul.s $f4, $f4, $f2
-	mul.s $f4, $f4, $f2	#$f4 = x^17
-
-	l.s $f8, seventeenFactorial
-	div.s $f10, $f4, $f8	#$f10 = x^17 / 17!
-
-	add.s $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+	add.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!
 
 
-	div.s $f18, $f6, $f16	#$f18 = cos(x)/sin(x)
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^11
+
+	l.d $f8, elevenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^11 / 11!
+
+	sub.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^13
+
+	l.d $f8, thirteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^13 / 13!
+
+	add.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^15
+
+	l.d $f8, fifteenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^15 / 15!
+
+	sub.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!
+
+
+	mul.d $f4, $f4, $f2
+	mul.d $f4, $f4, $f2	#$f4 = x^17
+
+	l.d $f8, seventeenFactorial
+	div.d $f10, $f4, $f8	#$f10 = x^17 / 17!
+
+	add.d $f16, $f16, $f10	#$f16 = x-x^3/3!+x^5/5!-x^7/7!+x^9/9!-x^11/11!+x^13/13!-x^15/15!+x^17/17!
+
+
+	div.d $f18, $f6, $f16	#$f18 = cos(x)/sin(x)
 
 
 	la $a0, printCot	#loads the address of printCot into $a0
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f2		#have to move $f18 to $f12 because it only prints $f12
+	li $v0, 3		#3 is the print_double syscall
 	syscall			#makes the syscall
 
 	la $a0, closeParen	#loads the address of closeParentheses into $a0
@@ -1090,10 +1087,9 @@ computeCotan:
 	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
-	mov.s $f12, $f18	#have to move $t0 to $f12 because it only prints $f12
-	li $v0, 2		#2 is the print_float syscall
+	mov.d $f12, $f18	#have to move $t0 to $f12 because it only prints $f12
+	li $v0, 3		#2 is the print_double syscall
 	syscall			#makes the syscall
-	j top			#returns to the input stage
 
 	j top			#returns to the input stage
 
@@ -1123,25 +1119,25 @@ closeParen:	.asciiz ")"
 printExp:	.asciiz "^"
 divZeroMessage: .asciiz "Cannot divide by zero."
 badOperator: 	.asciiz "Command not recognized. Please try again."
-numberZero:	.float 0.0
-numberOne:	.float 1.0
+numberZero:	.double 0.0
+numberOne:	.double 1.0
 
 	#these are used to calculate sine
-threeFactorial:	.float 6.0
-fiveFactorial:	.float 120.0
-sevenFactorial:	.float 5040.0
-nineFactorial:	.float 362880.0
-elevenFactorial:.float 39916800.0
-thirteenFactorial:.float 6227020800.0
-fifteenFactorial:.float 1307674368000.0
-seventeenFactorial:.float 355687428096000.0
+threeFactorial:	.double 6.0
+fiveFactorial:	.double 120.0
+sevenFactorial:	.double 5040.0
+nineFactorial:	.double 362880.0
+elevenFactorial:.double 39916800.0
+thirteenFactorial:.double 6227020800.0
+fifteenFactorial:.double 1307674368000.0
+seventeenFactorial:.double 355687428096000.0
 
 	#these are used to calculate cosine
-twoFactorial:	.float 2.0
-fourFactorial:	.float 24.0
-sixFactorial:	.float 720.0
-eightFactorial:	.float 40320.0
-tenFactorial:	.float 3628800.0
-twelveFactorial:.float 479001600.0
-fourteenFactorial:.float 87178291299.0
-sixteenFactorial:.float 20922789888000.0
+twoFactorial:	.double 2.0
+fourFactorial:	.double 24.0
+sixFactorial:	.double 720.0
+eightFactorial:	.double 40320.0
+tenFactorial:	.double 3628800.0
+twelveFactorial:.double 479001600.0
+fourteenFactorial:.double 87178291299.0
+sixteenFactorial:.double 20922789888000.0
