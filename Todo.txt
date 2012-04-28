@@ -1,12 +1,8 @@
 Feel free to add things to the to-do list and claim tasks by putting your name next to them. When you complete a task, move it to DONE.
 
 TO DO:
-- Exponential function.
-- Figure out why it doesn't read floats in quite right.
-- Make everything (but the trig operations which already do) work with floats.
-- Error handling for invalid operators
-- Overflow handling
-- Convert all operations to floating point operations.
+- Make x^0 work.
+- Any extra functions we want to add.
 
 DONE:
-- Everything not listed above.
+- Pretty much everything.
