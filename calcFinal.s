@@ -268,6 +268,10 @@ exponential:
 	addi $t2, $zero, 0	#$t2 is the loop counter
 	li $s0, 1		#$s0 will contain the result
 
+	addi $t3, $zero, 0	#$t3 = 0
+
+	beq $t3, $t2, expZero	#if $t2 = 0, goto expZero
+
 		expLoop:
 	addi $t2, $t2, 1	#i++
 	mult $s0, $t0		#lo = $s0 * $t0
@@ -296,6 +300,31 @@ exponential:
 	syscall			#makes the syscall
 
 	j top			#returns to the input stage
+
+expZero: 
+	addi $s0, $zero, 1	#$s0 = 1
+
+	move $a0, $t0		#have to move $t0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, printExp	#loads the address of printExp into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $t1		#have to move $t1 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, equalsSign	#loads the address of equalsSign into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $s0		#have to move $s0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	j top 			#returns to the input stage
 
 computeSin:
 		#stores the user input in $f2, $f6 will be the output
