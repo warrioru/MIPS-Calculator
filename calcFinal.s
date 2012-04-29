@@ -270,7 +270,9 @@ exponential:
 
 	addi $t3, $zero, 0	#$t3 = 0
 
-	beq $t3, $t2, expZero	#if $t2 = 0, goto expZero
+	beq $t3, $t0, baseZero	#if $t0 = 0, goto baseZero
+
+	beq $t3, $t1, expZero	#if $t1 = 0, goto expZero
 
 		expLoop:
 	addi $t2, $t2, 1	#i++
@@ -301,6 +303,33 @@ exponential:
 
 	j top			#returns to the input stage
 
+baseZero:
+	addi $s0, $zero, 0	#$s0 = 0
+
+	beq $t3, $t1, baseExpZero   #if $t1 = 0, goto expZero
+
+	move $a0, $t0		#have to move $t0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, printExp	#loads the address of printExp into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $t1		#have to move $t1 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	la $a0, equalsSign	#loads the address of equalsSign into $a0
+	li $v0, 4		#4 is the print_string syscall
+	syscall			#makes the syscall
+
+	move $a0, $s0		#have to move $s0 to $a0 because it only prints $a0
+	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	j top 			#returns to the input stage
+
 expZero: 
 	addi $s0, $zero, 1	#$s0 = 1
 
@@ -322,6 +351,14 @@ expZero:
 
 	move $a0, $s0		#have to move $s0 to $a0 because it only prints $a0
 	li $v0, 1		#1 is the print_int syscall
+	syscall			#makes the syscall
+
+	j top 			#returns to the input stage
+
+baseExpZero:
+		#Safely returns the user to the top of the program if they are trying to do 0^0
+	la $a0, baseExpError	#loads the address of divZeroMessage into $a0
+	li $v0, 4		#4 is the print_string syscall
 	syscall			#makes the syscall
 
 	j top 			#returns to the input stage
@@ -1147,6 +1184,7 @@ printCot:	.asciiz "cot("
 closeParen:	.asciiz ")"
 printExp:	.asciiz "^"
 divZeroMessage: .asciiz "Cannot divide by zero."
+baseExpError:	.asciiz "0^0 is undefined"
 badOperator: 	.asciiz "Command not recognized. Please try again."
 numberZero:	.double 0.0
 numberOne:	.double 1.0
