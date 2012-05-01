@@ -1,8 +1,9 @@
 Feel free to add things to the to-do list and claim tasks by putting your name next to them. When you complete a task, move it to DONE.
 
 TO DO:
-- Make x^0 work.
 - Any extra functions we want to add.
+- Add GCD (Michelle)
+
 
 DONE:
 - Pretty much everything.
